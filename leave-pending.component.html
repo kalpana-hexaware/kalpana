@@ -1,0 +1,50 @@
+<p>
+  leave-pending works!
+</p>
+
+
+<table border = "3">
+  <tr>
+  
+  </tr>
+  <tr *ngFor="let user of edata | async">
+  <div *ngIf=" empno == user.empMgrId">
+      <div>
+        <th> EMPID </th><th>NAME</th><th>AVL LEV BAL</th>
+        <tr>
+        <td width ="305">{{user.empId}}</td>
+      <td width ="305">{{user.empName}}</td>
+      <td width ="305">{{user.empAvlLeaveBal}}</td>
+        </tr>
+      </div>
+          <tr>
+            <th> LEVID </th><th>LEV No. OF DAYS </th><th>LEVSDATE</th><th>  LEVEDATE </th><th> LEVTYPE </th>
+            <th>LEVSTATUS</th><th> LEVREASON </th><th>APPLYDATE</th><th>MGR COMM</th><th>EMPID</th>
+          </tr>
+        </div>
+        <div>
+          <table border = "3">  
+                      <tr *ngFor="let user1 of employ | async" (click)="show(user1.levId,user.empId)">
+                              <div *ngIf="user.empId==user1.empId ">
+              <td width ="48">{{user1.levId}}</td>
+              <td width ="132" >{{user1.levNoOfDays}}</td>
+              <td width = "85" >{{user1.levStartDate}}</td>
+              <td width = "87">{{user1.levEndDate}}</td>
+              <td width = "77" >{{user1.levType}}</td>
+              <td width = "93" >{{user1.levStatus}}</td>
+              <td width = "100" >{{user1.levReason}}</td>
+              <td width = "96" >{{user1.levApplyDate}}</td>
+              <td width = "100" >{{user1.levMgrComments}}</td>
+              <td width = "45" >{{user1.empId}}</td>
+                </div>
+          </tr>
+          </table>
+        </div>  
+</table>
+<div *ngIf="flag==true">
+  <input type="button" value="Approve/Deny" (click)="appDen()"/>
+</div>
+
+<div *ngIf="flag==false">
+    <input type="button" value="Approve/Deny" disabled />
+  </div>

@@ -1,0 +1,57 @@
+<p>
+    apply-leave works!
+  </p>
+  <body background="https://hexaware.com/wp-content/themes/hexaware-main/images/Brand/downloadbrand/color/logo.jpg">
+    <h1 style= "color:rgb(255, 20, 147);text-align:center;"><b>ApplyLeave:)</b> </h1>
+  <div style="text-align:center">
+        <form #userForm="ngForm" (ngSubmit)="apply(userForm)">
+        <div class="form-group">
+               
+            <label for= "levStartDate"><b><font size="4">Start Date :</font></b></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="Date" required="required" [(ngModel)]="obj.levStartDate" name="levStartDate" #levStartDate="ngModel"  >  
+            <div *ngIf="levStartDate.invalid && userForm.submitted && !isValidFormSubmitted"  [ngClass] = "'error'"> 
+                  <h6>Start Date is Required.</h6>
+                 </div>
+        </div>
+        <div class= "form-group">
+                <label for= "levEndDate"><b><font size="4">End Date :</font>&nbsp;</b> </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type = "Date" class= "form-control"
+                id = "levEndDate" required="required"
+                [(ngModel)]= "obj.levEndDate" name="levEndDate" #levEndDate="ngModel" (change)="calculateDays()">
+                <div *ngIf="levEndDate.invalid && userForm.submitted && !isValidFormSubmitted"  [ngClass] = "'error'"> 
+                       <h6>End Date is Required.</h6> 
+                      </div>
+            </div>
+            <div class="form-group">
+                    <label for="levType"><b><font size="4">Leave Type :</font></b></label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <select [(ngModel)]="obj.levType" name="levType" required="required" #levType="ngModel">
+                        <option value="EL">EL</option>
+                        <option value="SL">SL</option>
+                        <option value="ML">ML</option>
+                    </select>
+            </div>
+            <div class= "form-group">
+                    <label for= "levNoOfDays"><b><font size="4">Number of Days :</font></b> </label>
+                    <input type = "number" class= "form-control" readonly
+                    id = "levNoOfDays" required="required"
+                    [(ngModel)]= "obj.levNoOfDays" name="levNoOfDays" #levNoOfDays="ngModel" >
+                    <div *ngIf="levNoOfDays.invalid && userForm.submitted && !isValidFormSubmitted"  [ngClass] = "'error'"> 
+                            <h6>Leave Days is Required.</h6> 
+                           </div>
+                </div>
+            <div class= "form-group">
+                    <label for= "levReason"><b><font size="4">Leave Reason :</font> </b></label>&nbsp;&nbsp;&nbsp;
+                    <input type = "string" class= "form-control" size="30"
+                    id = "levReason" required="required"
+                    [(ngModel)]= "obj.levReason" name="levReason" #levReason="ngModel">
+                    <div *ngIf="levReason.invalid && userForm.submitted && !isValidFormSubmitted"  [ngClass] = "'error'"> 
+                            <h6>Reason is Required.</h6> 
+                           </div>
+                </div>
+                <button class=button>Apply</button>
+                <input type="button" class="button" value="Cancel" (click)="cancel()">
+                <h3 *ngIf="isValidFormSubmitted == true">STATUS: {{this.msg}}</h3>
+        </form>
+    </div>
+    
+  </body>

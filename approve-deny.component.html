@@ -1,0 +1,52 @@
+
+Employee ID:
+{{(employ | async )?.empId}}
+&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+Start Date:
+{{(leave | async )?.levStartDate}}
+<br><br>
+
+
+Employee Name:
+{{(employ | async )?.empName}}
+&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+End Date:
+{{(leave | async )?.levEndDate}}
+<br><br>
+
+Available Leave Balance:
+{{(employ | async )?.empAvlLeaveBal}}
+<br><br>
+&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+Number of days:
+{{(leave | async )?.levNoOfDays}}
+<br><br>
+&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+Leave Type:
+{{(leave | async )?.levType}}
+<br><br>
+&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+Reason:
+{{(leave | async )?.levReason}}
+<br><br>
+
+<div class= "form-group">
+  Comments:  <input type="text" [(ngModel)]="obj.levMgrComments" name="" class="input" style="margin-left:37px;">
+</div>
+<br><br>
+
+<button (click)="approve()" class="btn btn-success">Approve</button>
+&nbsp; &nbsp;&nbsp;
+<button (click)="deny()" class="btn btn-danger">Deny</button>
+&nbsp; &nbsp;&nbsp;
+<button (click)="cancel()" class="btn btn-primary">Cancel</button>
+<br><br>
+
+Result is : {{msg}}
+
+
